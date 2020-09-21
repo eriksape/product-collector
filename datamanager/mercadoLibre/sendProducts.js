@@ -5,6 +5,7 @@ async function insertLinks() {
   console.log('executing insettLinks');
     const productsService = new ProductsService();
     try{
+        console.log(`entrando a insertLinks From Criteria`);
         const data = await productsService.insertLinksFromCriteria();
         if(data){
               console.log('Links saved');
@@ -54,7 +55,11 @@ async function sendToNormalization(){
 
 async function main(){
   const insert = await insertLinks();
-  const execute = await executeLinks();
+
+  setTimeout(async () => {
+    const execute = await executeLinks();
+  }, 3000);
+  
 }
 main();
 
